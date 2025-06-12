@@ -155,7 +155,8 @@ DEBUG = os.environ.get('DEBUG', 'False') == 'True'
 SECRET_KEY = os.environ.get('SECRET_KEY', 'unsafe-default-secret-key')
 
 
-ALLOWED_HOSTS = os.environ.get('ALLOWED_HOSTS', '*').split(',')
+# ALLOWED_HOSTS = os.environ.get('ALLOWED_HOSTS', '*').split(',')
+ALLOWED_HOSTS = ['activecal-interactive-diet-recall.onrender.com']
 
 
 INSTALLED_APPS = [
@@ -243,4 +244,5 @@ CORS_ALLOWED_ORIGINS = [
     "https://your-frontend.netlify.app",  
     "http://localhost:4200",             
 ]
+
 
