@@ -219,9 +219,10 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # CORS settings (your actual Netlify frontend URL here)
 CORS_ALLOWED_ORIGINS = [
-    "https://capable-seahorse-340cbe.netlify.app",  # ✅ your Netlify app
-    "http://localhost:4200",                        # ✅ for local development
+    "https://luminous-arithmetic-6a7b8d.netlify.app",
+    "http://localhost:4200"
 ]
+
 
 # Optional (for APIs with no cookies/sessions)
 CORS_ALLOW_CREDENTIALS = True
