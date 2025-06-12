@@ -130,6 +130,15 @@
 
 
 
+
+
+
+
+
+
+
+
+
 import os
 from pathlib import Path
 
@@ -141,7 +150,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY', 'unsafe-default-secret-key')
 DEBUG = os.environ.get('DEBUG', 'False') == 'True'
 ALLOWED_HOSTS = ['activecal-interactive-diet-recall.onrender.com']
 
-# Installed apps
+# Application definition
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
@@ -149,14 +158,13 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'foodapp',                 # your app
-    'rest_framework',          # DRF
-    'corsheaders',             # CORS
+    'foodapp',
+    'rest_framework',
+    'corsheaders',
 ]
 
-# Middleware
 MIDDLEWARE = [
-    'corsheaders.middleware.CorsMiddleware',  # CORS middleware must be first
+    'corsheaders.middleware.CorsMiddleware',  # must be first
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -166,12 +174,8 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-# URLs and WSGI
 ROOT_URLCONF = 'backend.urls'
 
-WSGI_APPLICATION = 'backend.wsgi.application'
-
-# Templates
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
@@ -188,7 +192,9 @@ TEMPLATES = [
     },
 ]
 
-# Database (default SQLite)
+WSGI_APPLICATION = 'backend.wsgi.application'
+
+# Database
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
@@ -217,12 +223,11 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 # Default primary key field type
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-# CORS settings (your actual Netlify frontend URL here)
+# CORS settings (allow Angular frontend on Netlify)
 CORS_ALLOWED_ORIGINS = [
-    "https://luminous-arithmetic-6a7b8d.netlify.app",
-    "http://localhost:4200"
+    "https://luminous-arithmetic-6a7b8d.netlify.app",  # ✅ Your Netlify URL
+    "http://localhost:4200"  # ✅ For local testing
 ]
 
-
-# Optional (for APIs with no cookies/sessions)
+# Optional: allow cookies if needed
 CORS_ALLOW_CREDENTIALS = True
